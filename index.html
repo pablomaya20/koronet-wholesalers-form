@@ -486,7 +486,7 @@ var state={lang:"es",cur:0,f:{
     {category:"Summer Flowers",pct:""},
     {category:"Otro / Other",pct:""}
   ],
-  eshop_emails:[],
+  eshop_emails:[""],
   vendor_type_pref:"",can_import_direct:"",import_timeline:"",
   top_vendors:[
     {company:"",country:"",type:"",product:"",koronet:""},
@@ -587,7 +587,7 @@ function eshopEmailTbl(){
   var rows=state.f.eshop_emails.map(function(e,i){
     return "<tr><td style=\"padding:4px 8px;color:#888;font-size:12px\">"+(i+1)+"</td><td><input type=\"text\" data-dyn=\"ee\" data-idx=\""+i+"\" value=\""+esc(e||"")+"\" placeholder=\""+esc(t("eshop_email_ph"))+"\"></td><td><button type=\"button\" class=\"remove-row-btn\" data-rm=\"ee\" data-idx=\""+i+"\" aria-label=\"Remove\">&times;</button></td></tr>";
   }).join("");
-  return "<div id=\"field-eshop_emails\"><p class=\"field-label\">"+t("eshop_emails_label")+"</p><table class=\"dyn-table\"><thead><tr><th>#</th><th>Email</th><th></th></tr></thead><tbody id=\"ee-body\">"+rows+"</tbody></table><button type=\"button\" class=\"add-row-btn\" id=\"add-ee\">+ "+t("add_eshop_email")+"</button></div>";
+  return "<div id=\"field-eshop_emails\"><p class=\"field-label\">"+t("eshop_emails_label")+"</p><table class=\"dyn-table\"><thead><tr><th>#</th><th>Email</th><th></th></tr></thead><tbody id=\"ee-body\">"+rows+"</tbody></table><div style=\"display:flex;justify-content:flex-end;margin-top:8px\"><button type=\"button\" class=\"add-row-btn\" id=\"add-ee\">+ "+t("add_eshop_email")+"</button></div></div>";
 }
 function topVendorsTbl(){
   var rows=state.f.top_vendors.map(function(r,i){
