@@ -33,7 +33,7 @@ body{font-family:'Inter',sans-serif;background:#0a0a0a;color:#fff;min-height:100
 input[type="text"],input[type="email"],input[type="url"],input[type="number"],input[type="tel"],textarea,select{width:100%;background:#1a1a1a;border:1px solid #2a2a2a;border-radius:8px;color:#fff;font-family:'Inter',sans-serif;font-size:15px;padding:12px;outline:none;transition:border-color 0.15s;}
 input::placeholder,textarea::placeholder{color:#444;}
 input:focus,textarea:focus,select:focus{border-color:rgba(255,255,255,0.4);}
-textarea{resize:vertical;min-height:90px;}
+input[type="number"]::-webkit-inner-spin-button,input[type="number"]::-webkit-outer-spin-button{-webkit-appearance:none;margin:0;}input[type="number"]{-moz-appearance:textfield;}textarea{resize:vertical;min-height:90px;}textarea::-webkit-resizer{display:none;}
 fieldset{border:none;}
 legend{font-size:13px;font-weight:500;color:#ccc;margin-bottom:10px;}
 .check-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
@@ -219,7 +219,7 @@ goal_90d_text:"¿Qué esperas lograr en los primeros 90 días con eSuite? (en tu
 s3_poc_label:"Main Point of Contact (Implementation Owner) — responsable día a día: mantiene inventario, gestiona eShop, coordina con vendors y customers.",
 admin_name:"Nombre completo",admin_role:"Cargo",admin_email:"Correo electrónico",admin_phone:"Teléfono",
 weekly_hours_legend:"¿Cuánto tiempo dedicará esta persona a la plataforma por semana?",
-wh_2_5:"2 – 5 horas / hours",wh_5_10:"5 – 10 horas / hours",wh_mas_10:"Más de 10 horas / More than 10 hours",wh_full:"Tiempo completo / Full time",
+wh_2_5:"2–5 horas",wh_5_10:"5–10 horas",wh_mas_10:"Más de 10 horas",wh_full:"Tiempo completo",
 other_attendees_label:"Otros asistentes a la implementación (opcional)",att_col1:"Nombre completo",att_col2:"Cargo / Rol",att_col3:"Email",add_attendee:"Agregar asistente",
 what_you_sell_legend:"¿Qué vendes?",
 ws_flowers:"Flores frescas (Roses, Garden Roses, Summer Flowers, etc.)",ws_greens:"Greens / Foliage",ws_tropical:"Flores tropicales",
@@ -229,7 +229,7 @@ hys_box:"Solo por caja",hys_unit:"Por unidad (bunches)",hys_both:"Ambos: cajas y
 active_customers:"¿Cuántos clientes activos atiendes regularmente?",
 monthly_sales_vol:"Volumen de ventas mensual promedio (USD)",
 has_online_channel_legend:"¿Tienes actualmente un canal de ventas online?",
-hoc_yes:"Sí / Yes",hoc_no:"No",
+hoc_yes:"Sí",hoc_no:"No",
 online_channel_goal:"Meta mensual de ventas para ese canal (USD)",
 monthly_purchase_vol:"Volumen mensual de compras promedio (USD)",
 active_vendors_count:"¿Con cuántos vendors activos trabajas actualmente?",
@@ -240,7 +240,7 @@ eshop_email_ph:"correo@empresa.com",add_eshop_email:"Agregar email",
 vendor_type_pref_legend:"¿Qué tipo de vendor prefieres para tus compras?",
 vtp_importers:"Solo importadores / mayoristas en USA",vtp_farms:"Directo desde fincas en Colombia o Ecuador",vtp_both:"Ambos — estoy abierto a las dos opciones",
 can_import_direct_legend:"Si compras directo desde finca — ¿tienes capacidad de importar directo desde origen (Colombia / Ecuador)?",
-cid_yes:"Sí / Yes",cid_no:"No",cid_progress:"En proceso / In progress",
+cid_yes:"Sí",cid_no:"No",cid_progress:"En proceso",
 import_timeline:"¿Cuál es el timeline estimado?",
 top_vendors_label:"Top 5 vendors actuales — esta tabla nos ayuda a identificar conexiones K2K desde el día 1:",
 tv_col1:"Empresa / Company",tv_col2:"País / Country",tv_col3:"Tipo (Importador/Finca) / Type",tv_col4:"Producto principal / Main product",tv_col5:"¿Usa Koronet? / Uses Koronet?",
@@ -261,8 +261,8 @@ outbound_carriers:"Lista los carriers de outbound / métodos de entrega que usas
 intl_transit_days:"Días de tránsito — vendors internacionales",
 domestic_transit_days:"Días de tránsito — vendors domésticos",
 has_fedex_legend:"¿Tienes cuenta FedEx doméstica?",
-hf_yes:"Sí / Yes",hf_no:"No",
-fedex_certified_legend:"¿Está certificada?",fc_yes:"Sí / Yes",fc_no:"No",
+hf_yes:"Sí",hf_no:"No",
+fedex_certified_legend:"¿Está certificada?",fc_yes:"Sí",fc_no:"No",
 current_systems_legend:"¿Cómo manejas actualmente inventario y ventas?",
 sys_excel:"Excel / Google Sheets",sys_koronet_core:"Koronet Core",sys_erp:"Software ERP (SAP, QuickBooks, etc.)",
 sys_propio:"Sistema propio / custom",sys_whatsapp:"WhatsApp / email",sys_sin:"Sin sistema definido",sys_otro:"Otro",
@@ -316,6 +316,7 @@ ph_final_notes:"Cualquier información adicional...",
 ph_implementation_concerns:"Dudas sobre el proceso de implementación...",
 ph_how_heard:"Ej: recomendación, evento, Koronet sales / e.g. referral, event, Koronet sales",
 ph_other:"Especifica...",
+proc_cat_otro:"Otro",
 welcome_title:"Bienvenido",welcome_subtitle:"Pre-Implementation Success Form · Wholesalers",welcome_btn:"Comenzar",prep_badge:"Antes de comenzar",prep_title:"Ten esto a la mano",prep_subtitle:"Algunas respuestas pueden requerir consultar con otra persona de tu equipo.",prep_card1_title:"Lo que vendes y compras",prep_card1_items:["Categorías de producto (flores, greens, tropicales, supplies)","Volumen mensual de ventas y compras en USD","% standing orders vs spot"],prep_card2_title:"Tus vendors",prep_card2_items:["Top 5 vendors con nombre, país y tipo (importador/finca)","Emails con que acceden a Grower Portal en Koronet"],prep_card3_title:"Logística",prep_card3_note:null,prep_card3_items:["Carriers que usas para inbound y outbound","Días de tránsito internacionales y domésticos"],prep_card4_title:"Tecnología",prep_card4_items:["Sistemas actuales para inventario y ventas (Excel, ERP, Koronet Core, custom, etc.)"],prep_card5_title:"Materiales",prep_card5_items:["Logo en alta resolución (PNG/SVG fondo transparente)","Vendor application form si existe"],prep_confidential:"Toda la información que compartas es <b>confidencial</b> y será usada exclusivamente por el equipo de eSuite para preparar tu implementación.",prep_btn:"Comenzar formulario"
 },
 en:{
@@ -366,7 +367,7 @@ goal_90d_text:"What do you expect to achieve in the first 90 days with eSuite? (
 s3_poc_label:"Main Point of Contact (Implementation Owner) — day-to-day responsible: maintains inventory, manages eShop, coordinates with vendors and customers.",
 admin_name:"Full name",admin_role:"Role / Title",admin_email:"Email address",admin_phone:"Phone number",
 weekly_hours_legend:"How much time will this person dedicate to the platform per week?",
-wh_2_5:"2 – 5 horas / hours",wh_5_10:"5 – 10 horas / hours",wh_mas_10:"Más de 10 horas / More than 10 hours",wh_full:"Tiempo completo / Full time",
+wh_2_5:"2–5 hours",wh_5_10:"5–10 hours",wh_mas_10:"More than 10 hours",wh_full:"Full time",
 other_attendees_label:"Other implementation attendees (optional)",att_col1:"Full name",att_col2:"Role",att_col3:"Email",add_attendee:"Add attendee",
 what_you_sell_legend:"What do you sell?",
 ws_flowers:"Fresh flowers (Roses, Garden Roses, Summer Flowers, etc.)",ws_greens:"Greens / Foliage",ws_tropical:"Tropical flowers",
@@ -376,7 +377,7 @@ hys_box:"By box only",hys_unit:"By unit (bunches)",hys_both:"Both: boxes and uni
 active_customers:"How many active customers do you serve regularly?",
 monthly_sales_vol:"Average monthly sales volume (USD)",
 has_online_channel_legend:"Do you currently have an online sales channel?",
-hoc_yes:"Sí / Yes",hoc_no:"No",
+hoc_yes:"Yes",hoc_no:"No",
 online_channel_goal:"Monthly sales goal for that channel (USD)",
 monthly_purchase_vol:"Average monthly purchase volume (USD)",
 active_vendors_count:"How many active vendors do you currently work with?",
@@ -387,7 +388,7 @@ eshop_email_ph:"email@company.com",add_eshop_email:"Add email",
 vendor_type_pref_legend:"What type of vendor do you prefer for your purchases?",
 vtp_importers:"Importers / wholesalers in USA only",vtp_farms:"Direct from farms in Colombia or Ecuador",vtp_both:"Both — I'm open to either option",
 can_import_direct_legend:"If you buy direct from farms — do you have the capacity to import directly from origin (Colombia / Ecuador)?",
-cid_yes:"Sí / Yes",cid_no:"No",cid_progress:"En proceso / In progress",
+cid_yes:"Yes",cid_no:"No",cid_progress:"In progress",
 import_timeline:"What is the estimated timeline?",
 top_vendors_label:"Current top 5 vendors — this table helps us identify K2K connections from day 1:",
 tv_col1:"Company",tv_col2:"Country",tv_col3:"Type (Importer/Farm)",tv_col4:"Main product",tv_col5:"Uses Koronet?",
@@ -408,8 +409,8 @@ outbound_carriers:"List the outbound carriers / delivery methods you use",
 intl_transit_days:"Transit days — international vendors",
 domestic_transit_days:"Transit days — domestic vendors",
 has_fedex_legend:"Do you have a domestic FedEx account?",
-hf_yes:"Sí / Yes",hf_no:"No",
-fedex_certified_legend:"Is it certified?",fc_yes:"Sí / Yes",fc_no:"No",
+hf_yes:"Yes",hf_no:"No",
+fedex_certified_legend:"Is it certified?",fc_yes:"Yes",fc_no:"No",
 current_systems_legend:"How do you currently manage inventory and sales?",
 sys_excel:"Excel / Google Sheets",sys_koronet_core:"Koronet Core",sys_erp:"ERP software (SAP, QuickBooks, etc.)",
 sys_propio:"Custom / proprietary system",sys_whatsapp:"WhatsApp / email",sys_sin:"No defined system",sys_otro:"Other",
@@ -463,6 +464,7 @@ ph_final_notes:"Any additional information...",
 ph_implementation_concerns:"Questions about the implementation process...",
 ph_how_heard:"E.g.: referral, event, Koronet sales",
 ph_other:"Specify...",
+proc_cat_otro:"Other",
 welcome_title:"Welcome",welcome_subtitle:"Pre-Implementation Success Form · Wholesalers",welcome_btn:"Get started",prep_badge:"Before you start",prep_title:"Have this ready",prep_subtitle:"Some answers may require checking with another member of your team.",prep_card1_title:"What you sell and buy",prep_card1_items:["Product categories (flowers, greens, tropicals, supplies)","Monthly sales and purchase volume in USD","% standing orders vs spot"],prep_card2_title:"Your vendors",prep_card2_items:["Top 5 vendors with name, country and type (importer/farm)","Emails they use to access Grower Portal in Koronet"],prep_card3_title:"Logistics",prep_card3_note:null,prep_card3_items:["Carriers you use for inbound and outbound","International and domestic transit days"],prep_card4_title:"Technology",prep_card4_items:["Current systems for inventory and sales (Excel, ERP, Koronet Core, custom, etc.)"],prep_card5_title:"Materials",prep_card5_items:["High-resolution logo (PNG/SVG transparent background)","Vendor application form if available"],prep_confidential:"All information you share is <b>confidential</b> and will be used exclusively by the eSuite team to prepare your implementation.",prep_btn:"Start the form"
 }};var TOTAL=11;
 var state={lang:"es",cur:0,f:{
@@ -484,7 +486,7 @@ var state={lang:"es",cur:0,f:{
     {category:"Summer Flowers",pct:""},
     {category:"Otro / Other",pct:""}
   ],
-  eshop_access_emails:[],
+  eshop_emails:[],
   vendor_type_pref:"",can_import_direct:"",import_timeline:"",
   top_vendors:[
     {company:"",country:"",type:"",product:"",koronet:""},
@@ -576,16 +578,16 @@ function attTbl(){
 }
 function procCatTbl(){
   var rows=state.f.procurement_categories.map(function(r,i){
-    var catCell=i===5?"<input type=\"text\" data-dyn=\"pc\" data-idx=\""+i+"\" value=\""+esc(r.category)+"\" placeholder=\"Otro / Other\">":"<span style=\"color:#fff\">"+esc(r.category)+"</span>";
-    return "<tr><td style=\"padding:6px 8px\">"+catCell+"</td><td><input type=\"text\" data-dyn=\"pp\" data-idx=\""+i+"\" value=\""+esc(r.pct||"")+"\" placeholder=\""+esc(t("ph_proc_pct"))+"\"></td></tr>";
+    var label=i===5?t("proc_cat_otro"):esc(r.category);
+    return "<tr><td style=\"padding:6px 8px;color:#fff\">"+label+"</td><td><input type=\"text\" data-dyn=\"pp\" data-idx=\""+i+"\" value=\""+esc(r.pct||"")+"\" placeholder=\""+esc(t("ph_proc_pct"))+"\"></td></tr>";
   }).join("");
   return "<div style=\"margin-top:20px\" id=\"field-procurement_categories\"><p class=\"field-label\">"+t("proc_cat_label")+"</p><table class=\"dyn-table\"><thead><tr><th>"+t("proc_col1")+"</th><th>"+t("proc_col2")+"</th></tr></thead><tbody id=\"proc-body\">"+rows+"</tbody></table></div>";
 }
 function eshopEmailTbl(){
-  var rows=state.f.eshop_access_emails.map(function(e,i){
-    return "<tr><td style=\"padding:4px 8px;color:#888;font-size:12px\">"+(i+1)+"</td><td><input type=\"email\" data-dyn=\"ee\" data-idx=\""+i+"\" value=\""+esc(e||"")+"\" placeholder=\""+esc(t("eshop_email_ph"))+"\"></td><td><button type=\"button\" class=\"remove-row-btn\" data-rm=\"ee\" data-idx=\""+i+"\" aria-label=\"Remove\">&times;</button></td></tr>";
+  var rows=state.f.eshop_emails.map(function(e,i){
+    return "<tr><td style=\"padding:4px 8px;color:#888;font-size:12px\">"+(i+1)+"</td><td><input type=\"text\" data-dyn=\"ee\" data-idx=\""+i+"\" value=\""+esc(e||"")+"\" placeholder=\""+esc(t("eshop_email_ph"))+"\"></td><td><button type=\"button\" class=\"remove-row-btn\" data-rm=\"ee\" data-idx=\""+i+"\" aria-label=\"Remove\">&times;</button></td></tr>";
   }).join("");
-  return "<div id=\"field-eshop_access_emails\"><p class=\"field-label\">"+t("eshop_emails_label")+"</p><table class=\"dyn-table\"><thead><tr><th>#</th><th>Email</th><th></th></tr></thead><tbody id=\"ee-body\">"+rows+"</tbody></table><button type=\"button\" class=\"add-row-btn\" id=\"add-ee\">+ "+t("add_eshop_email")+"</button></div>";
+  return "<div id=\"field-eshop_emails\"><p class=\"field-label\">"+t("eshop_emails_label")+"</p><table class=\"dyn-table\"><thead><tr><th>#</th><th>Email</th><th></th></tr></thead><tbody id=\"ee-body\">"+rows+"</tbody></table><button type=\"button\" class=\"add-row-btn\" id=\"add-ee\">+ "+t("add_eshop_email")+"</button></div>";
 }
 function topVendorsTbl(){
   var rows=state.f.top_vendors.map(function(r,i){
@@ -598,7 +600,7 @@ function fedexCertCond(){
   var show=state.f.has_fedex==="yes";
   var sel=state.f.fedex_certified;
   var opts=[["yes","fc_yes"],["no","fc_no"]].map(function(it){var v=it[0],chk=sel===v;var dot=chk?"<span style=\"width:8px;height:8px;background:#ffffff;border-radius:50%;display:inline-block\"></span>":"";return "<label class=\"radio-item"+(chk?" checked":"")+"\" data-name=\"fedex_certified\" data-val=\""+v+"\" tabindex=\"0\" role=\"radio\" aria-checked=\""+chk+"\"><input type=\"radio\" name=\"fedex_certified\" value=\""+v+"\""+(chk?" checked":"")+" disabled><span class=\"custom-circle\">"+dot+"</span><span>"+t(it[1])+"</span></label>";}).join("");
-  return "<div class=\"conditional-field"+(show?" visible":"")+"\" id=\"cond-fedex_certified\"><fieldset id=\"field-fedex_certified\"><legend>"+t("fedex_certified_legend")+"</legend><div class=\"radio-col\">"+opts+"</div><div class=\"field-error\" id=\"err-fedex_certified\" role=\"alert\"></div></fieldset></div>";
+  return "<div class=\"conditional-field"+(show?" visible":"")+"\" id=\"cond-fedex_certified\"><fieldset id=\"field-fedex_certified\"><legend>"+t("fedex_certified_legend")+"<span class=\"req\" aria-hidden=\"true\">*</span></legend><div class=\"radio-col\">"+opts+"</div><div class=\"field-error\" id=\"err-fedex_certified\" role=\"alert\"></div></fieldset></div>";
 }
 function renderSection(n){
   var ws=document.getElementById("welcome-screen"),fc=document.getElementById("form-container"),pw=document.getElementById("progress-bar-wrap");
@@ -645,9 +647,15 @@ function validate(n){
     case 3:rt("admin_name");rt("admin_role");re("admin_email");rt("admin_phone");rr("weekly_hours");break;
     case 4:rc("what_you_sell");rr("how_you_sell");rr("has_online_channel");break;
     case 5:rt("vendors_in_koronet");break;
-    case 6:rr("vendor_type_pref");rr("can_import_direct");rc("vendor_selection_criteria");break;
-    case 7:rc("non_negotiables");rt("first_order_blocker");break;
-    case 8:rr("has_fedex");break;
+    case 6:rr("vendor_type_pref");rr("can_import_direct");rc("vendor_selection_criteria");
+      if(f.vendor_selection_criteria&&f.vendor_selection_criteria.indexOf("otro")!==-1&&(!f.vendor_selection_criteria_other||!f.vendor_selection_criteria_other.trim())){showErr("vendor_selection_criteria_other",T[tl].required);ok=false;}else clrErr("vendor_selection_criteria_other");
+      break;
+    case 7:rc("non_negotiables");
+      if(f.non_negotiables&&f.non_negotiables.indexOf("otro")!==-1&&(!f.non_negotiables_other||!f.non_negotiables_other.trim())){showErr("non_negotiables_other",T[tl].required);ok=false;}else clrErr("non_negotiables_other");
+      rt("first_order_blocker");break;
+    case 8:rr("has_fedex");
+      if(f.has_fedex==="yes"&&!f.fedex_certified){showErr("fedex_certified",T[tl].required);ok=false;}else clrErr("fedex_certified");
+      break;
     case 9:rc("current_systems");rr("team_digital_level");rt("main_pain_point");break;
   }
   return ok;
@@ -675,6 +683,37 @@ function updChk(lbl,isChk){
   if(isChk){box.style.background="#ffffff";box.style.borderColor="#ffffff";box.innerHTML="<svg width=\"10\" height=\"7\" viewBox=\"0 0 10 7\" fill=\"none\"><path d=\"M1 3L4 6L9 1\" stroke=\"#000\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>";}
   else{box.style.background="";box.style.borderColor="";box.innerHTML="";}
   lbl.setAttribute("aria-checked",isChk);
+}
+function bindAttTbl(){
+  var tb=document.getElementById("att-body");if(!tb)return;
+  tb.addEventListener("input",function(e){var el=e.target;if(!el.dataset.dyn)return;var i=parseInt(el.dataset.idx);if(!state.f.other_attendees[i])return;if(el.dataset.dyn==="an")state.f.other_attendees[i].name=el.value;if(el.dataset.dyn==="ar")state.f.other_attendees[i].role=el.value;if(el.dataset.dyn==="ae")state.f.other_attendees[i].email=el.value;});
+  tb.addEventListener("click",function(e){var btn=e.target.closest("[data-rm=\"att\"]");if(!btn)return;var i=parseInt(btn.dataset.idx);state.f.other_attendees.splice(i,1);refreshAttTbl();});
+}
+function refreshAttTbl(){
+  var tb=document.getElementById("att-body");if(!tb)return;
+  tb.innerHTML=state.f.other_attendees.map(function(r,i){return "<tr><td><input type=\"text\" data-dyn=\"an\" data-idx=\""+i+"\" value=\""+esc(r.name||"")+"\" placeholder=\""+esc(t("ph_att_name"))+"\"></td><td><input type=\"text\" data-dyn=\"ar\" data-idx=\""+i+"\" value=\""+esc(r.role||"")+"\" placeholder=\""+esc(t("ph_att_role"))+"\"></td><td><input type=\"email\" data-dyn=\"ae\" data-idx=\""+i+"\" value=\""+esc(r.email||"")+"\" placeholder=\""+esc(t("ph_att_email"))+"\"></td><td><button type=\"button\" class=\"remove-row-btn\" data-rm=\"att\" data-idx=\""+i+"\" aria-label=\"Remove\">&times;</button></td></tr>";}).join("");
+  bindAttTbl();
+  var btn=document.getElementById("add-att");if(btn)btn.style.display=state.f.other_attendees.length>=5?"none":"";
+}
+function bindProcCatTbl(){
+  var tb=document.getElementById("proc-body");if(!tb)return;
+  tb.addEventListener("input",function(e){var el=e.target;if(!el.dataset.dyn)return;var i=parseInt(el.dataset.idx);if(el.dataset.dyn==="pp")state.f.procurement_categories[i].pct=el.value;});
+}
+function bindEshopEmailTbl(){
+  var tb=document.getElementById("ee-body");if(!tb)return;
+  tb.addEventListener("input",function(e){var el=e.target;if(el.dataset.dyn==="ee"){state.f.eshop_emails[parseInt(el.dataset.idx)]=el.value;}});
+  tb.addEventListener("click",function(e){var btn=e.target.closest("[data-rm=\"ee\"]");if(!btn)return;var i=parseInt(btn.dataset.idx);state.f.eshop_emails.splice(i,1);refreshEshopEmail();});
+}
+function refreshEshopEmail(){
+  var tb=document.getElementById("ee-body");if(!tb)return;
+  tb.innerHTML=state.f.eshop_emails.map(function(e,i){return "<tr><td style=\"padding:4px 8px;color:#888;font-size:12px\">"+(i+1)+"</td><td><input type=\"text\" data-dyn=\"ee\" data-idx=\""+i+"\" value=\""+esc(e||"")+"\" placeholder=\""+esc(t("eshop_email_ph"))+"\"></td><td><button type=\"button\" class=\"remove-row-btn\" data-rm=\"ee\" data-idx=\""+i+"\" aria-label=\"Remove\">&times;</button></td></tr>";}).join("");
+  bindEshopEmailTbl();
+  var addBtn=document.getElementById("add-ee");if(addBtn)addBtn.style.display=state.f.eshop_emails.length>=5?"none":"";
+}
+function bindTopVendorsTbl(){
+  var tb=document.getElementById("tv-body");if(!tb)return;
+  tb.addEventListener("input",function(e){var el=e.target;if(!el.dataset.dyn)return;var i=parseInt(el.dataset.idx);if(el.dataset.dyn==="vc")state.f.top_vendors[i].company=el.value;if(el.dataset.dyn==="vco")state.f.top_vendors[i].country=el.value;if(el.dataset.dyn==="vt")state.f.top_vendors[i].type=el.value;if(el.dataset.dyn==="vp")state.f.top_vendors[i].product=el.value;});
+  tb.addEventListener("change",function(e){var el=e.target;if(el.dataset.dyn==="vk"){state.f.top_vendors[parseInt(el.dataset.idx)].koronet=el.value;}});
 }
 function bindEvents(n){
   var bn=document.getElementById("btn-next");
@@ -728,8 +767,8 @@ function bindEvents(n){
     bindEshopEmailTbl();
     var addEe=document.getElementById("add-ee");
     if(addEe){
-      addEe.style.display=state.f.eshop_access_emails.length>=5?"none":"";
-      addEe.addEventListener("click",function(){if(state.f.eshop_access_emails.length>=5)return;state.f.eshop_access_emails.push("");refreshEshopEmailTbl();});
+      addEe.style.display=state.f.eshop_emails.length>=5?"none":"";
+      addEe.addEventListener("click",function(){if(state.f.eshop_emails.length>=5)return;state.f.eshop_emails.push("");refreshEshopEmail();});
     }
     bindTopVendorsTbl();
   }
@@ -768,7 +807,7 @@ async function handleSubmit(){
       monthly_purchase_vol:f.monthly_purchase_vol,active_vendors_count:f.active_vendors_count,
       vendors_in_koronet:f.vendors_in_koronet,
       procurement_categories:f.procurement_categories,
-      eshop_access_emails:f.eshop_access_emails.filter(function(e){return e.trim();}),
+      eshop_emails:f.eshop_emails.filter(function(e){return e.trim();}),
       vendor_type_pref:f.vendor_type_pref,can_import_direct:f.can_import_direct,
       import_timeline:f.import_timeline,
       top_vendors:f.top_vendors,
