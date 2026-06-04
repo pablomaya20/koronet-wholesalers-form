@@ -489,11 +489,11 @@ var state={lang:"es",cur:0,f:{
   eshop_emails:[""],
   vendor_type_pref:"",can_import_direct:"",import_timeline:"",
   top_vendors:[
-    {company:"",country:"",type:"",product:"",koronet:""},
-    {company:"",country:"",type:"",product:"",koronet:""},
-    {company:"",country:"",type:"",product:"",koronet:""},
-    {company:"",country:"",type:"",product:"",koronet:""},
-    {company:"",country:"",type:"",product:"",koronet:""}
+    {company:"",country:"",type:"",product:"",uses_koronet:""},
+    {company:"",country:"",type:"",product:"",uses_koronet:""},
+    {company:"",country:"",type:"",product:"",uses_koronet:""},
+    {company:"",country:"",type:"",product:"",uses_koronet:""},
+    {company:"",country:"",type:"",product:"",uses_koronet:""}
   ],
   vendor_selection_criteria:[],vendor_selection_criteria_other:"",desired_vendors:"",
   non_negotiables:[],non_negotiables_other:"",first_order_blocker:"",current_friction:"",
@@ -591,8 +591,8 @@ function eshopEmailTbl(){
 }
 function topVendorsTbl(){
   var rows=state.f.top_vendors.map(function(r,i){
-    var koronetSel=["","yes","no","dontknow"].map(function(v){return "<option value=\""+v+"\""+(r.koronet===v?" selected":"")+">"+(v===""?"—":t("tv_"+v))+"</option>";}).join("");
-    return "<tr><td><input type=\"text\" data-dyn=\"vc\" data-idx=\""+i+"\" value=\""+esc(r.company||"")+"\" placeholder=\""+esc(t("tv_col1"))+"\"></td><td><input type=\"text\" data-dyn=\"vco\" data-idx=\""+i+"\" value=\""+esc(r.country||"")+"\" placeholder=\""+esc(t("tv_col2"))+"\"></td><td><input type=\"text\" data-dyn=\"vt\" data-idx=\""+i+"\" value=\""+esc(r.type||"")+"\" placeholder=\""+esc(t("tv_col3"))+"\"></td><td><input type=\"text\" data-dyn=\"vp\" data-idx=\""+i+"\" value=\""+esc(r.product||"")+"\" placeholder=\""+esc(t("tv_col4"))+"\"></td><td><select data-dyn=\"vk\" data-idx=\""+i+"\">"+koronetSel+"</select></td></tr>";
+    var koronetSel=["","yes","no","dontknow"].map(function(v){return "<option value=\""+v+"\""+(r.uses_koronet===v?" selected":"")+">"+(v===""?"—":t("tv_"+v))+"</option>";}).join("");
+    return "<tr><td><input type=\"text\" data-dyn=\"vc\" data-idx=\""+i+"\" value=\""+esc(r.company||"")+"\" placeholder=\""+esc(t("tv_col1"))+"\"></td><td><input type=\"text\" data-dyn=\"vco\" data-idx=\""+i+"\" value=\""+esc(r.country||"")+"\" placeholder=\""+esc(t("tv_col2"))+"\"></td><td><input type=\"text\" data-dyn=\"vt\" data-idx=\""+i+"\" value=\""+esc(r.type||"")+"\" placeholder=\""+esc(t("tv_col3"))+"\"></td><td><input type=\"text\" data-dyn=\"vp\" data-idx=\""+i+"\" value=\""+esc(r.product||"")+"\" placeholder=\""+esc(t("tv_col4"))+"\"></td><td><select data-dyn=\"tv-uk\" data-idx=\""+i+"\">"+koronetSel+"</select></td></tr>";
   }).join("");
   return "<div id=\"field-top_vendors\"><p class=\"field-label\">"+t("top_vendors_label")+"</p><table class=\"dyn-table\"><thead><tr><th>"+t("tv_col1")+"</th><th>"+t("tv_col2")+"</th><th>"+t("tv_col3")+"</th><th>"+t("tv_col4")+"</th><th>"+t("tv_col5")+"</th></tr></thead><tbody id=\"tv-body\">"+rows+"</tbody></table></div>";
 }
@@ -713,7 +713,7 @@ function refreshEshopEmail(){
 function bindTopVendorsTbl(){
   var tb=document.getElementById("tv-body");if(!tb)return;
   tb.addEventListener("input",function(e){var el=e.target;if(!el.dataset.dyn)return;var i=parseInt(el.dataset.idx);if(el.dataset.dyn==="vc")state.f.top_vendors[i].company=el.value;if(el.dataset.dyn==="vco")state.f.top_vendors[i].country=el.value;if(el.dataset.dyn==="vt")state.f.top_vendors[i].type=el.value;if(el.dataset.dyn==="vp")state.f.top_vendors[i].product=el.value;});
-  tb.addEventListener("change",function(e){var el=e.target;if(el.dataset.dyn==="vk"){state.f.top_vendors[parseInt(el.dataset.idx)].koronet=el.value;}});
+  tb.addEventListener("change",function(e){var el=e.target;if(el.dataset.dyn==="tv-uk"){state.f.top_vendors[parseInt(el.dataset.idx)].uses_koronet=el.value;}});
 }
 function bindEvents(n){
   var bn=document.getElementById("btn-next");
